@@ -109,6 +109,44 @@ FlowSelf 的核心机制：
 
 ---
 
+# 🏗️ Technical Architecture | 技术架构
+
+## Monorepo 结构
+
+```
+FlowSelf/
+├── apps/
+│   └── web/              # Web 应用（React + Vite）
+├── packages/
+│   ├── types/            # 共享类型定义
+│   ├── ui/               # 共享 UI 组件
+│   └── utils/            # 共享工具函数（含 AI 服务）
+├── docs/                 # 架构文档与需求分析
+├── turbo.json            # Turbo 配置
+└── pnpm-workspace.yaml   # PNPM workspace 配置
+```
+
+## 技术栈
+
+**前端**：
+- React 19 + TypeScript
+- Vite（构建工具）
+- Tailwind CSS（样式）
+- Lucide React（图标）
+- Recharts（数据可视化）
+
+**AI 集成**：
+- Google Gemini API（情绪分析与智能建议）
+
+**未来扩展**：
+- Supabase（后端 + 数据库 + 认证）
+- Cloudflare Workers + R2（边缘计算 + 存储）
+- React Native（移动端）
+- Tauri（桌面端）
+- n8n（工作流引擎）
+
+---
+
 # 🌐 Key Features | 核心特性（抽象层）
 
 FlowSelf 的六大核心能力：
@@ -126,36 +164,101 @@ FlowSelf 的六大核心能力：
 
 # 🚀 Roadmap
 
-### **v0.1 – 基础层**
+### **Phase 1: Monorepo 架构搭建（当前阶段 - 70% 完成）**
 
-- [ ] Life Layer 最小可用版
-- [ ] Knowledge Layer 最小可用版
-- [ ] 基础记录流程
+- [x] 搭建 Turbo + PNPM Monorepo 基础架构
+- [x] 从 LifeOs demo 迁移核心功能
+- [x] 提取共享代码到 packages
+- [ ] 修复组件 import 路径（进行中）
+- [ ] 配置 TypeScript 路径别名
+- [ ] 安装依赖并测试运行
+- [ ] 验证所有功能正常运行
 
-### **v0.2 – Life Layer 加强**
+**详细进度**：查看 [迁移进度报告](./docs/migration-progress.md)
 
-- [ ] 情绪平台
-- [ ] 习惯平台
-- [ ] 媒体收集
-- [ ] 工作 / 私人双模式
+**包含功能**：
+- Dashboard（仪表盘）
+- Mood Tracker（情绪追踪）
+- Inbox（收集箱）
+- Notes（笔记管理）
+- Knowledge Base（知识库 + 闪卡复习）
+- Subscriptions（订阅管理）
+- Social CRM（人脉能量管理）
+- Flow Center（稍后读）
+- Work Mode（工作模式）
+- AI Insights（Gemini 集成）
 
-### **v0.3 – Knowledge Layer 加强**
+### **Phase 2: 统一后台集成**
 
-- [ ] 笔记结构化
-- [ ] 面试题 / 知识问答
-- [ ] 学习回顾
+- [ ] Supabase 后端搭建
+- [ ] 用户认证系统
+- [ ] 数据持久化
+- [ ] 实时同步机制
+- [ ] 离线支持（桌面端）
 
-### **v0.4 – 成长闭环**
+### **Phase 3: 多端扩展**
 
-- [ ] 日 / 周复盘
-- [ ] 复习任务
-- [ ] 成长仪表盘
+- [ ] 移动端应用（React Native）
+- [ ] 桌面端应用（Tauri）
+- [ ] 跨端数据同步
+- [ ] 统一 SDK 封装
+
+### **Phase 4: 知识增强**
+
+- [ ] 笔记向量化
+- [ ] 语义检索
+- [ ] AI 问答生成
+- [ ] 间隔重复算法优化
+- [ ] 知识图谱可视化
+
+### **Phase 5: 智能化与自动化**
+
+- [ ] 工作流引擎集成（n8n）
+- [ ] 自动内容解析
+- [ ] 智能推荐
+- [ ] 自适应学习路径
 
 ### **v1.0 – FlowSelf Release**
 
-- [ ] Flow Mode（心流模式）
-- [ ] 完整 Growth Loop
+- [ ] 完整的成长闭环
 - [ ] 年度成长报告
+- [ ] 性能优化与稳定性
+- [ ] 用户引导体系
+
+---
+
+# 🚀 Quick Start | 快速开始
+
+## 环境要求
+
+- Node.js >= 18
+- PNPM >= 9.15.0
+
+## 安装与运行
+
+```bash
+# 安装 PNPM（如果还没有）
+npm install -g pnpm
+
+# 安装依赖
+pnpm install
+
+# 启动开发服务器
+pnpm dev
+
+# 构建生产版本
+pnpm build
+```
+
+## 配置 AI 功能（可选）
+
+如需使用 AI 情绪分析和智能建议功能，需要配置 Google Gemini API：
+
+1. 在 `apps/web` 目录创建 `.env` 文件
+2. 添加你的 API Key：
+   ```
+   VITE_GEMINI_API_KEY=your_api_key_here
+   ```
 
 ---
 
@@ -166,5 +269,17 @@ FlowSelf 希望成为：
 > **你一生都能持续依赖的个人成长操作平台。**
 
 它记录生活、理解知识、反哺思考，并推动你成为更好的自己。
+
+---
+
+# 📄 License | 许可证
+
+MIT License
+
+---
+
+# 🤝 Contributing | 贡献
+
+欢迎提交 Issue 和 Pull Request！
 
 ---
