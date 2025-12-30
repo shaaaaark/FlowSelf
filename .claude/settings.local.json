@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(codeagent)",
+      "Skill(codex)",
+      "Skill(frontend-design)",
+      "Skill(gemini)",
+      "WebFetch(domain:raw.githubusercontent.com)"
+    ]
+  }
+}
